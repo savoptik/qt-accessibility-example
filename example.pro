@@ -1,4 +1,5 @@
 TEMPLATE = app
+QT += widgets
 CONFIG += c++17
 
 # Указываем путь к директории с исходниками
