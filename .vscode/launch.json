@@ -1,8 +1,8 @@
 {
  "version": "0.2.0",
- "configurations": 
+ "configurations": [
  {
- "name": "Run Example",
+ "name": "Run Example (LLDB)",
  "type": "cppdbg",
  "request": "launch",
  "program": "${workspaceFolder}/build/bin/example",
@@ -12,7 +12,11 @@
  "environment": [],
  "externalConsole": false,
  "MIMode": "lldb",
- "preLaunchTask": "make"
+ "miDebuggerPath": "/usr/bin/lldb",
+ "preLaunchTask": "make",
+ "logging": {
+ "engineLogging": true
  }
- 
+ }
+]
 }
