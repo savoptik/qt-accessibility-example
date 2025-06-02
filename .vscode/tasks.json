@@ -39,8 +39,7 @@
  },
  "options": {
  "cwd": "${workspaceFolder}"
- },
- "problemMatcher": "$gcc"
+ }
  },
  {
  "label": "clean",
