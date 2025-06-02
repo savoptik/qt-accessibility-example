@@ -1,11 +1,11 @@
 {
  "version": "2.0.0",
- "tasks": 
+ "tasks": [
  {
  "label": "create build dir",
  "type": "shell",
  "command": "mkdir",
- "args": "-p", "build/bin",
+ "args": ["-p", "build/bin"],
  "group": {
  "kind": "build",
  "isDefault": false
@@ -18,7 +18,7 @@
  "label": "qmake",
  "type": "shell",
  "command": "qmake-qt6",
- "args": "example.pro",
+ "args": ["example.pro"],
  "group": {
  "kind": "build",
  "isDefault": false
@@ -26,13 +26,13 @@
  "options": {
  "cwd": "${workspaceFolder}"
  },
- "dependsOn": "create build dir"
+ "dependsOn": ["create build dir"]
  },
  {
  "label": "make",
  "type": "shell",
  "command": "make",
- "dependsOn": "qmake",
+ "dependsOn": ["qmake"],
  "group": {
  "kind": "build",
  "isDefault": true
@@ -46,7 +46,7 @@
  "label": "clean",
  "type": "shell",
  "command": "make",
- "args": "clean",
+ "args": ["clean"],
  "group": {
  "kind": "build",
  "isDefault": false
@@ -59,7 +59,7 @@
  "label": "full rebuild",
  "type": "shell",
  "command": "make",
- "dependsOn": "clean", "qmake",
+ "dependsOn": ["clean", "qmake"],
  "group": {
  "kind": "build",
  "isDefault": false
@@ -67,6 +67,6 @@
  "options": {
  "cwd": "${workspaceFolder}"
  }
- }
- 
+  }
+]
 }
