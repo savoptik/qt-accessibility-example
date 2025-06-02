@@ -1,24 +1,72 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "qmake",
-            "type": "shell",
-            "command": "qmake-qt6",
-            "args": ["example.pro"],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "make",
-            "type": "shell",
-            "command": "make",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        }
-    ]
+ "version": "2.0.0",
+ "tasks": 
+ {
+ "label": "create build dir",
+ "type": "shell",
+ "command": "mkdir",
+ "args": "-p", "build/bin",
+ "group": {
+ "kind": "build",
+ "isDefault": false
+ },
+ "options": {
+ "cwd": "${workspaceFolder}"
+ }
+ },
+ {
+ "label": "qmake",
+ "type": "shell",
+ "command": "qmake-qt6",
+ "args": "example.pro",
+ "group": {
+ "kind": "build",
+ "isDefault": false
+ },
+ "options": {
+ "cwd": "${workspaceFolder}"
+ },
+ "dependsOn": "create build dir"
+ },
+ {
+ "label": "make",
+ "type": "shell",
+ "command": "make",
+ "dependsOn": "qmake",
+ "group": {
+ "kind": "build",
+ "isDefault": true
+ },
+ "options": {
+ "cwd": "${workspaceFolder}"
+ },
+ "problemMatcher": "$gcc"
+ },
+ {
+ "label": "clean",
+ "type": "shell",
+ "command": "make",
+ "args": "clean",
+ "group": {
+ "kind": "build",
+ "isDefault": false
+ },
+ "options": {
+ "cwd": "${workspaceFolder}"
+ }
+ },
+ {
+ "label": "full rebuild",
+ "type": "shell",
+ "command": "make",
+ "dependsOn": "clean", "qmake",
+ "group": {
+ "kind": "build",
+ "isDefault": false
+ },
+ "options": {
+ "cwd": "${workspaceFolder}"
+ }
+ }
+ 
 }
