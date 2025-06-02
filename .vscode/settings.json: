@@ -1,0 +1,7 @@
+{
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "C_Cpp.intelliSenseEngine": "Default",
+    "editor.tabSize": 4,
+    "files.autoSave": "onFocusChange"
+}
