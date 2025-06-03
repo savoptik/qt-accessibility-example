@@ -22,16 +22,19 @@ public:
         // Создаем список
         auto *listWidget = new QListWidget;
         listWidget->addItems({"Элемент 1", "Элемент 2", "Элемент 3"});
+        listWidget->setAccessibleName("Какой-то список");
         layout->addWidget(listWidget);
 
         // Создаем комбобокс
         auto *comboBox = new QComboBox;
         comboBox->addItems({"Вариант 1", "Вариант 2", "Вариант 3"});
+        comboBox->setAccessibleName("Какой-то комбобокс");
         layout->addWidget(comboBox);
 
         // Создаем текстовое поле
         auto *lineEdit = new QLineEdit;
         layout->addWidget(lineEdit);
+        lineEdit->setAccessibleName("Какое-то текстовое поле");
 
         // Подключаем сигнал нажатия кнопки
         connect(button, &QPushButton::clicked, [=]() {
